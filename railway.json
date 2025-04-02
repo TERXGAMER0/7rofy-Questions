@@ -1,0 +1,7 @@
+{
+    "build": {
+      "builder": "node"
+    },
+    "start": "node server/server.js"
+  }
+  
