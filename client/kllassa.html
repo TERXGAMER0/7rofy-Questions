@@ -267,35 +267,15 @@
         .getElementById("secret-submit")
         .addEventListener("click", function () {
           var code = document.getElementById("secret-code").value.trim();
-          // تم تعليق المفاتيح الثابتة القديمة
-          // var allowedCodes = [
-          //   "IAGSJ81628JAVW",
-          //   "KABWJWHYSV",
-          //   "KAHWUWHVSKV",
-          //   "LANNSIDHSHHS",
-          //   "kiV6VN0ktqdrLmN",
-          //   "Ct1g4TlYdqG233n",
-          //   "1TPDOC2GBXQ3Q",
-          //   "17NIK5UKYWXIX",
-          //   "ECO6233Y63Y19",
-          //   "X8PILDJ1SDD95",
-          //   "77777",
-          // ];
-          // جلب مفاتيح التفعيل من الخادم (المسترجعة من المتغيرات البيئية في .env)
-          fetch("/api/allowed-codes")
-            .then((response) => response.json())
-            .then((data) => {
-              var allowedCodes = data.allowedCodes;
-              if (allowedCodes.includes(code)) {
-                document.getElementById("secret-overlay").style.display = "none";
-              } else {
-                document.getElementById("error-message").style.display = "block";
-              }
-            })
-            .catch((err) => {
-              console.error("Error fetching allowed codes:", err);
-              alert("حدث خطأ أثناء التحقق من الرمز.");
-            });
+          // مصفوفة الرموز المسموح بها؛ يمكن إضافة المزيد من الرموز هنا
+          var allowedCodes = [
+           
+          ];
+          if (allowedCodes.includes(code)) {
+            document.getElementById("secret-overlay").style.display = "none";
+          } else {
+            document.getElementById("error-message").style.display = "block";
+          }
         });
     </script>
   </body>
