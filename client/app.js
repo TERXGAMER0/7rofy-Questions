@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // النصوص العادية (يمكن التحكم بحجمها وموضعها)
     const plainTexts = [
-      { text: "النص الأول", x: 400, y: 500, fontSize: "25px" },
+      { text: " للأستفسار اسم حسابي في التيك توك هو jifn", x: 400, y: 500, fontSize: "25px" },
       { text: "النص الثاني", x: 200, y: 500, fontSize: "0px" },
       { text: "النص الثالث", x: 350, y: 500, fontSize: "0px" }
     ];
