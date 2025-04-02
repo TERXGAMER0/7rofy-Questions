@@ -1,20 +1,13 @@
 {
-    "name": "7rofy-Questions",
-    "version": "1.0.0",
-    "description": "الخادم الخاص باللعبة الثانية باستخدام Node.js و Express",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "keywords": [
-      "game",
-      "express",
-      "nodejs"
-    ],
-    "author": "اسمك",
-    "license": "MIT",
-    "dependencies": {
-      "express": "^4.18.2"
-    }
+  "name": "7rofy-Questions",
+  "version": "1.0.0",
+  "description": "مشروع أسئلة وأجوبة",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3"
   }
-  
+}
