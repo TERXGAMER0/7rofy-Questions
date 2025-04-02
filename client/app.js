@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // النصوص العادية (يمكن التحكم بحجمها وموضعها)
     const plainTexts = [
-      { text: " للأستفسار اسم حسابي في التيك توك هو jifn", x: 400, y: 500, fontSize: "25px" },
+      { text: " للأستفسار اسم حسابي في التيك توك هو jifn", x: 400, y: 750, fontSize: "25px" },
       { text: "النص الثاني", x: 200, y: 500, fontSize: "0px" },
       { text: "النص الثالث", x: 350, y: 500, fontSize: "0px" }
     ];
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // النصوص التي تعمل كرابط (يمكن التحكم بحجمها وموضعها)
     const linkTexts = [
-      { text: "ااضغط هنا", url: "https://www.tiktok.com/@jifn", x: 550, y: 550, fontSize: "25px" },
+      { text: "ااضغط هنا", url: "https://www.tiktok.com/@jifn", x: 550, y: 800, fontSize: "25px" },
       { text: "الرابط الثاني", url: "https://www.crunchyroll.com/ar", x: 200, y: 550, fontSize: "0px" },
       { text: "الرابط الثالث", url: "https://www.youtube.com/", x: 350, y: 550, fontSize: "0px" }
     ];
