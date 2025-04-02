@@ -106,17 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const code = secretCodeInput.value.trim();
       // قائمة الرموز المسموح بها للدخول
       const allowedCodes = [
-        "IAGSJ81628JAVW",
-        "KABWJWHYSV",
-        "KAHWUWHVSKV",
-        "LANNSIDHSHHS",
-        "kiV6VN0ktqdrLmN",
-        "Ct1g4TlYdqG233n",
-        "1TPDOC2GBXQ3Q",
-        "17NIK5UKYWXIX",
-        "ECO6233Y63Y19",
-        "X8PILDJ1SDD95",
-        "77777"
+ 
       ];
       if(allowedCodes.includes(code)) {
         secretOverlay.style.display = 'none';
