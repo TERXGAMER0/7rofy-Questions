@@ -124,5 +124,47 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMessage.style.display = 'block';
       }
     });
-  });
-  
+
+    // ========================================================
+    // الإضافات الجديدة: إضافة ثلاث نصوص ثابتة وثلاثة نصوص قابلة للنقر للتوجيه إلى الصفحة المطلوبة
+    // ========================================================
+
+    // تكوين النصوص الثابتة (يمكن تعديل النص والحجم والإحداثيات هنا)
+    const staticTextsConfig = [
+      { text: "نص 1", fontSize: "16px", top: "80%", left: "10%" },
+      { text: "نص 2", fontSize: "18px", top: "85%", left: "40%" },
+      { text: "نص 3", fontSize: "20px", top: "90%", left: "70%" }
+    ];
+
+    staticTextsConfig.forEach(config => {
+      let div = document.createElement('div');
+      div.textContent = config.text;
+      div.style.position = 'absolute';
+      div.style.fontSize = config.fontSize;
+      div.style.top = config.top;
+      div.style.left = config.left;
+      // يمكن إضافة تنسيقات إضافية هنا إذا لزم الأمر
+      document.body.appendChild(div);
+    });
+
+    // تكوين النصوص القابلة للنقر للتوجيه (يمكن تعديل النص والحجم والإحداثيات هنا)
+    const linkTextsConfig = [
+      { text: "رابط 1", fontSize: "16px", top: "80%", left: "30%" },
+      { text: "رابط 2", fontSize: "18px", top: "85%", left: "60%" },
+      { text: "رابط 3", fontSize: "20px", top: "90%", left: "80%" }
+    ];
+
+    linkTextsConfig.forEach(config => {
+      let a = document.createElement('a');
+      a.textContent = config.text;
+      a.href = "https://7rofy.up.railway.app";
+      a.style.position = 'absolute';
+      a.style.fontSize = config.fontSize;
+      a.style.top = config.top;
+      a.style.left = config.left;
+      a.style.color = 'blue';  // تحديد لون النص القابل للنقر
+      a.style.cursor = 'pointer';
+      // يمكن إضافة المزيد من التنسيقات حسب الحاجة
+      document.body.appendChild(a);
+    });
+});
