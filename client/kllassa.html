@@ -138,9 +138,34 @@
     <script>
       // مصفوفة تحتوي على 28 حرف عربي
       const letters = [
-        "أ", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س",
-        "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م",
-        "ن", "ه", "و", "ي"
+        "أ",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ",
+        "د",
+        "ذ",
+        "ر",
+        "ز",
+        "س",
+        "ش",
+        "ص",
+        "ض",
+        "ط",
+        "ظ",
+        "ع",
+        "غ",
+        "ف",
+        "ق",
+        "ك",
+        "ل",
+        "م",
+        "ن",
+        "ه",
+        "و",
+        "ي",
       ];
       let selectedLetter = ""; // الحرف المختار
       let questionsData = []; // لتخزين الأسئلة والإجابات
@@ -160,13 +185,18 @@
         letterSelectionDiv.appendChild(btn);
       });
       // إظهار/إخفاء قائمة اختيار الحرف
-      document.getElementById("choose-letter-btn").addEventListener("click", function () {
-          if (letterSelectionDiv.style.display === "none" || letterSelectionDiv.style.display === "") {
+      document
+        .getElementById("choose-letter-btn")
+        .addEventListener("click", function () {
+          if (
+            letterSelectionDiv.style.display === "none" ||
+            letterSelectionDiv.style.display === ""
+          ) {
             letterSelectionDiv.style.display = "block";
           } else {
             letterSelectionDiv.style.display = "none";
           }
-      });
+        });
       // تحميل الأسئلة من ملف نصي
       function loadQuestions(letter) {
         const fileName = letter + ".txt";
@@ -183,7 +213,10 @@
               } else if (line.startsWith("الإجابة:")) {
                 currentAnswer = line.replace("الإجابة:", "").trim();
                 if (currentQuestion && currentAnswer) {
-                  questionsData.push({ question: currentQuestion, answer: currentAnswer });
+                  questionsData.push({
+                    question: currentQuestion,
+                    answer: currentAnswer,
+                  });
                   currentQuestion = "";
                   currentAnswer = "";
                 }
@@ -199,7 +232,9 @@
           });
       }
       // عرض سؤال عشوائي
-      document.getElementById("random-btn").addEventListener("click", function () {
+      document
+        .getElementById("random-btn")
+        .addEventListener("click", function () {
           if (!selectedLetter) {
             alert("يرجى اختيار حرف أولاً عن طريق الضغط على زر 'اختر الحرف'");
             return;
@@ -212,63 +247,72 @@
           const qa = questionsData[randomIndex];
           document.getElementById("question").textContent = qa.question;
           document.getElementById("answer").textContent = qa.answer;
-      });
+        });
     </script>
     <script>
       // التحقق من الرمز السري
-      document.getElementById("secret-submit").addEventListener("click", function () {
+      document
+        .getElementById("secret-submit")
+        .addEventListener("click", function () {
           const code = document.getElementById("secret-code").value.trim();
           fetch("/api/allowed-codes")
             .then((response) => response.json())
             .then((data) => {
               const allowedCodes = data.allowedCodes;
               if (allowedCodes.includes(code)) {
-                document.getElementById("secret-overlay").style.display = "none";
+                document.getElementById("secret-overlay").style.display =
+                  "none";
               } else {
-                document.getElementById("error-message").style.display = "block";
+                document.getElementById("error-message").style.display =
+                  "block";
               }
             })
             .catch((err) => {
               console.error("Error fetching allowed codes:", err);
               alert("حدث خطأ أثناء التحقق من الرمز.");
             });
-      });
+        });
     </script>
     <!-- الإضافات الجديدة: إضافة ثلاث نصوص ثابتة وثلاثة نصوص قابلة للنقر للتوجيه إلى الصفحة المطلوبة -->
     <script>
       // تكوين النصوص الثابتة (يمكن تعديل النص والحجم والإحداثيات هنا)
       const staticTextsConfig = [
-         { text: "نص 1", fontSize: "16px", top: "80%", left: "10%" },
-         { text: "نص 2", fontSize: "18px", top: "85%", left: "40%" },
-         { text: "نص 3", fontSize: "20px", top: "90%", left: "70%" }
+        {
+          text: " للأستفسار اسم حسابي في التيك توك هو jifn",
+          fontSize: "25px",
+          top: "60%",
+          left: "25%",
+        },
+        { text: "نص 2", fontSize: "0px", top: "85%", left: "40%" },
+        { text: "نص 3", fontSize: "0px", top: "90%", left: "70%" },
       ];
-      staticTextsConfig.forEach(config => {
-         let div = document.createElement('div');
-         div.textContent = config.text;
-         div.style.position = 'absolute';
-         div.style.fontSize = config.fontSize;
-         div.style.top = config.top;
-         div.style.left = config.left;
-         document.body.appendChild(div);
+      staticTextsConfig.forEach((config) => {
+        let div = document.createElement("div");
+        div.textContent = config.text;
+        div.style.position = "absolute";
+        div.style.fontSize = config.fontSize;
+        div.style.top = config.top;
+        div.style.left = config.left;
+        document.body.appendChild(div);
       });
-      
+
       // تكوين النصوص القابلة للنقر للتوجيه (يمكن تعديل النص والحجم والإحداثيات هنا)
       const linkTextsConfig = [
-         { text: "رابط 1", fontSize: "16px", top: "80%", left: "30%" },
-         { text: "رابط 2", fontSize: "18px", top: "85%", left: "60%" },
-         { text: "رابط 3", fontSize: "20px", top: "90%", left: "80%" }
+        { text: "اضغط هنا", fontSize: "25px", top: "67%", left: "44%" },
+        { text: "رابط 2", fontSize: "0px", top: "85%", left: "60%" },
+        { text: "رابط 3", fontSize: "0px", top: "90%", left: "80%" },
       ];
-      linkTextsConfig.forEach(config => {
-         let a = document.createElement('a');
-         a.textContent = config.text;
-         a.href = "https://7rofy.up.railway.app";
-         a.style.position = 'absolute';
-         a.style.fontSize = config.fontSize;
-         a.style.top = config.top;
-         a.style.left = config.left;
-         a.style.color = 'blue';
-         a.style.cursor = 'pointer';
-         document.body.appendChild(a);
+      linkTextsConfig.forEach((config) => {
+        let a = document.createElement("a");
+        a.textContent = config.text;
+        a.href = "https://7rofy.up.railway.app";
+        a.style.position = "absolute";
+        a.style.fontSize = config.fontSize;
+        a.style.top = config.top;
+        a.style.left = config.left;
+        a.style.color = "blue";
+        a.style.cursor = "pointer";
+        document.body.appendChild(a);
       });
     </script>
   </body>
