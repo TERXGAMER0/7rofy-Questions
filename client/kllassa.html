@@ -135,6 +135,43 @@
         <!-- ستظهر هنا أزرار الحروف -->
       </div>
     </div>
+
+    <!-- إضافة النصوص الإضافية والتحكم بمواقعها وأحجامها -->
+    <!-- النصوص العادية -->
+    <div id="additional-texts">
+      <div style="position: absolute; left: 400px; top: 500px; font-size: 25px">
+        للأستفسار اسم حسابي في التيك توك هو jifn
+      </div>
+      <div style="position: absolute; left: 200px; top: 500px; font-size: 0px">
+        النص الثاني
+      </div>
+      <div style="position: absolute; left: 350px; top: 500px; font-size: 0px">
+        النص الثالث
+      </div>
+      <!-- النصوص كرابط -->
+      <div style="position: absolute; left: 550px; top: 550px; font-size: 25px">
+        <a
+          href="https://www.tiktok.com/@jifn"
+          style="color: inherit; text-decoration: none"
+          >اضغط هنا</a
+        >
+      </div>
+      <div style="position: absolute; left: 200px; top: 550px; font-size: 0px">
+        <a
+          href="https://www.crunchyroll.com/ar"
+          style="color: inherit; text-decoration: none"
+          >الرابط الثاني</a
+        >
+      </div>
+      <div style="position: absolute; left: 350px; top: 550px; font-size: 0px">
+        <a
+          href="https://www.youtube.com/"
+          style="color: inherit; text-decoration: none"
+          >الرابط الثالث</a
+        >
+      </div>
+    </div>
+
     <script>
       // مصفوفة تحتوي على 28 حرف عربي
       const letters = [
@@ -272,48 +309,6 @@
               alert("حدث خطأ أثناء التحقق من الرمز.");
             });
         });
-    </script>
-    <!-- الإضافات الجديدة: إضافة ثلاث نصوص ثابتة وثلاثة نصوص قابلة للنقر للتوجيه إلى الصفحة المطلوبة -->
-    <script>
-      // تكوين النصوص الثابتة (يمكن تعديل النص والحجم والإحداثيات هنا)
-      const staticTextsConfig = [
-        {
-          text: " للأستفسار اسم حسابي في التيك توك هو jifn",
-          fontSize: "25px",
-          top: "60%",
-          left: "25%",
-        },
-        { text: "نص 2", fontSize: "0px", top: "85%", left: "40%" },
-        { text: "نص 3", fontSize: "0px", top: "90%", left: "70%" },
-      ];
-      staticTextsConfig.forEach((config) => {
-        let div = document.createElement("div");
-        div.textContent = config.text;
-        div.style.position = "absolute";
-        div.style.fontSize = config.fontSize;
-        div.style.top = config.top;
-        div.style.left = config.left;
-        document.body.appendChild(div);
-      });
-
-      // تكوين النصوص القابلة للنقر للتوجيه (يمكن تعديل النص والحجم والإحداثيات هنا)
-      const linkTextsConfig = [
-        { text: "اضغط هنا", fontSize: "25px", top: "67%", left: "44%" },
-        { text: "رابط 2", fontSize: "0px", top: "85%", left: "60%" },
-        { text: "رابط 3", fontSize: "0px", top: "90%", left: "80%" },
-      ];
-      linkTextsConfig.forEach((config) => {
-        let a = document.createElement("a");
-        a.textContent = config.text;
-        a.href = "https://7rofy.up.railway.app";
-        a.style.position = "absolute";
-        a.style.fontSize = config.fontSize;
-        a.style.top = config.top;
-        a.style.left = config.left;
-        a.style.color = "blue";
-        a.style.cursor = "pointer";
-        document.body.appendChild(a);
-      });
     </script>
   </body>
 </html>
