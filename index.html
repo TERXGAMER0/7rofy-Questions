@@ -288,27 +288,25 @@
     </script>
     <script>
       // التحقق من الرمز السري
-      document
-        .getElementById("secret-submit")
-        .addEventListener("click", function () {
-          const code = document.getElementById("secret-code").value.trim();
-          fetch("/api/allowed-codes")
-            .then((response) => response.json())
-            .then((data) => {
-              const allowedCodes = data.allowedCodes;
-              if (allowedCodes.includes(code)) {
-                document.getElementById("secret-overlay").style.display =
-                  "none";
-              } else {
-                document.getElementById("error-message").style.display =
-                  "block";
-              }
-            })
-            .catch((err) => {
-              console.error("Error fetching allowed codes:", err);
-              alert("حدث خطأ أثناء التحقق من الرمز.");
-            });
-        });
-    </script>
+<script>
+  // التحقق من الرمز السري
+  document.getElementById("secret-submit").addEventListener("click", function () {
+    const code = document.getElementById("secret-code").value.trim();
+-   fetch("/api/allowed-codes")
++   fetch("/.netlify/functions/verify")
+      .then(response => response.json())
+      .then(data => {
+        if (data.valid) {
+          document.getElementById("secret-overlay").style.display = "none";
+        } else {
+          document.getElementById("error-message").style.display = "block";
+        }
+      })
+      .catch((err) => {
+        console.error("Error during verification:", err);
+        alert("حدث خطأ أثناء التحقق من الرمز.");
+      });
+  });
+</script>
   </body>
 </html>
