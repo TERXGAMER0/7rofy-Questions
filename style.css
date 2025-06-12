@@ -2,130 +2,113 @@
 
 /* إعدادات عامة للجميع */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* تنسيق الجسم العام */
-  body {
-    font-family: 'Arial', sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* تنسيق العنوان الرئيسي */
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #222;
-  }
-  
-  /* تنسيق حاوية اللعبة */
-  .game-container {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  /* تنسيق الأزرار */
-  button {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: #0056b3;
-  }
-  
-  /* تنسيق منطقة السؤال والجواب */
-  #question, #answer {
-    margin: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #f9f9f9;
-    min-height: 50px;
-  }
-  
-  /* تنسيق أزرار اختيار الحرف */
-  .letter-btn {
-    background: #555;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    margin: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .letter-btn:hover {
-    background: #333;
-  }
-  
-  /* تنسيق واجهة التحقق من الرمز السري */
-  #secret-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .secret-container {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-  }
-  .secret-container h2 {
-    margin-bottom: 15px;
-    color: #444;
-  }
-  .secret-container input {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .secret-container button {
-    width: 50%;
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background: #28a745;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  .secret-container button:hover {
-    background: #218838;
-  }
-  .error-message {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 10px;
-    display: none;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* تنسيق الجسم العام */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* تنسيق سؤال وجواب */
+.question,
+.answer {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+  min-height: 50px;
+}
+
+/* تنسيق أزرار التحكّم */
+button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #0056b3;
+}
+
+/* تنسيق أزرار اختيار الحرف */
+.letter-btn {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.letter-btn:hover {
+  background: #333;
+}
+
+/* تنسيق واجهة التحقق من الرمز السري */
+#secret-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secret-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+.secret-container h2 {
+  margin-bottom: 15px;
+  color: #444;
+}
+.secret-container input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.secret-container button {
+  width: 50%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #28a745;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.secret-container button:hover {
+  background: #218838;
+}
+#error-message,
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  display: none;
+}
