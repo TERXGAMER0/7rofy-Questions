@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // تحميل الأسئلة من ملف نصي خاص بالحرف
 function loadQuestions(letter) {
-  fetch(`/questions/${encodeURIComponent(letter)}.txt`)
+fetch(`/questions/${encodeURIComponent(letter)}.txt`)
     .then(response => {
       if (!response.ok) throw new Error("خطأ في تحميل الملف: " + letter + ".txt");
       return response.text();
