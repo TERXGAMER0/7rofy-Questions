@@ -1,5 +1,9 @@
 {
   "name": "7rofy-Questions",
   "version": "1.0.0",
+  "description": "برنامج الأسئلة والأجوبة مع حماية رمز تفعيل عبر Netlify Functions",
+  "scripts": {
+    "start": "netlify dev"
+  },
   "dependencies": {}
 }
