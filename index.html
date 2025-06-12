@@ -286,15 +286,16 @@
           document.getElementById("answer").textContent = qa.answer;
         });
     </script>
-    <script>
-      // التحقق من الرمز السري
 <script>
-  // التحقق من الرمز السري
+  // التحقق من الرمز السري عبر Netlify Function
   document.getElementById("secret-submit").addEventListener("click", function () {
     const code = document.getElementById("secret-code").value.trim();
--   fetch("/api/allowed-codes")
-+   fetch("/.netlify/functions/verify")
-      .then(response => response.json())
+    fetch("/.netlify/functions/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code })
+    })
+      .then(res => res.json())
       .then(data => {
         if (data.valid) {
           document.getElementById("secret-overlay").style.display = "none";
@@ -302,9 +303,9 @@
           document.getElementById("error-message").style.display = "block";
         }
       })
-      .catch((err) => {
+      .catch(err => {
         console.error("Error during verification:", err);
-        alert("حدث خطأ أثناء التحقق من الرمز.");
+        alert("فشل الاتصال بخدمة التحقق.");
       });
   });
 </script>
