@@ -1,3 +1,21 @@
 [build]
-  publish    = "."
-  functions  = "netlify/functions"
+  publish   = "."
+  functions = "netlify/functions"
+
+# أولاً: تحويل طلبات الـ API إلى دالة التحقق
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/verify"
+  status = 200
+
+# ثانياً: السماح بخدمة ملفات الأسئلة من مجلد questions/
+[[redirects]]
+  from   = "/questions/*"
+  to     = "/questions/:splat"
+  status = 200
+
+# أخيراً: أي مسار آخر إلى index.html
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
