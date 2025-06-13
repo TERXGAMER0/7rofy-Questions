@@ -57,34 +57,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // تحميل الأسئلة من ملف نصي خاص بالحرف
 function loadQuestions(letter) {
-  fetch(`questions/${letter}.txt`)
+  // استخدم مساراً يبدأ بشَرطة ويشفّر الحرف العربي
+  fetch(`/questions/${encodeURIComponent(letter)}.txt`)
     .then(response => {
-      if (!response.ok) throw new Error("خطأ في تحميل الملف: " + letter + ".txt");
+      if (!response.ok) throw new Error("خطأ في تحميل الملف: " + letter);
       return response.text();
     })
-      .then(data => {
-        questionsData = [];
-        let q = "", a = "";
-        data.split(/\r?\n/).forEach(line => {
-          if (line.startsWith("السؤال:")) {
-            q = line.replace("السؤال:", "").trim();
-          } else if (line.startsWith("الإجابة:")) {
-            a = line.replace("الإجابة:", "").trim();
-            if (q && a) {
-              questionsData.push({ question: q, answer: a });
-              q = ""; a = "";
-            }
+    .then(data => {
+      // البقية كما هي: تفكيك الأسئلة والإجابات في questionsData
+      questionsData = [];
+      let q = "", a = "";
+      data.split(/\r?\n/).forEach(line => {
+        if (line.startsWith("السؤال:")) q = line.replace("السؤال:", "").trim();
+        else if (line.startsWith("الإجابة:")) {
+          a = line.replace("الإجابة:", "").trim();
+          if (q && a) {
+            questionsData.push({ question: q, answer: a });
+            q = ""; a = "";
           }
-        });
-        if (questionsData.length === 0) {
-          alert("لم يتم العثور على أسئلة في الملف " + letter + ".txt");
         }
-      })
-      .catch(err => {
-        console.error(err);
-        alert("حدث خطأ أثناء تحميل الأسئلة.");
       });
-  }
+      if (!questionsData.length) {
+        alert("لا توجد أسئلة في الملف " + letter + ".txt");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("حدث خطأ أثناء تحميل الأسئلة.");
+    });
+}
 
   // التحقق من الرمز السري عبر Netlify Function
   secretSubmit.addEventListener('click', () => {
