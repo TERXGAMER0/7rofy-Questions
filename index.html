@@ -235,7 +235,7 @@
           }
         });
       // تحميل الأسئلة من ملف نصي
-      function loadQuestions(questions/letter) {
+      function loadQuestions(letter) {
         const fileName = letter + ".txt";
         fetch(fileName)
           .then((response) => response.text())
