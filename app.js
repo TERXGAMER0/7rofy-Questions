@@ -78,7 +78,7 @@ function loadQuestions(letter) {
         }
       });
       if (!questionsData.length) {
-        alert("لا توجد أسئلة في الملف " + letter + ".txt");
+        alert("لا توجد أسئلة " + letter + ".txt");
       }
     })
     .catch(err => {
